@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/fragment_main"
+    app:startDestination="@id/mainFragment">
+
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="com.example.navcomponents.MainFragment"
+        android:label="frag_main"
+        tools:layout="@layout/frag_main" >
+        <action
+            android:id="@+id/action_mainFragment_to_viewTransactionsFragment"
+            app:destination="@id/viewTransactionsFragment"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"/>
+        <action
+            android:id="@+id/action_mainFragment_to_chooseRecipientFragment"
+            app:destination="@id/chooseRecipientFragment"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"/>
+        <action
+            android:id="@+id/action_mainFragment_to_viewBalanceFragment"
+            app:destination="@id/viewBalanceFragment"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"/>
+    </fragment>
+    <fragment
+        android:id="@+id/chooseRecipientFragment"
+        android:name="com.example.navcomponents.ChooseRecipientFragment"
+        android:label="fragment_choose_recipient"
+        tools:layout="@layout/fragment_choose_recipient">
+
+        <action
+            android:id="@+id/action_chooseRecipientFragment_to_specifyAmountFragment2"
+            app:destination="@id/specifyAmountFragment"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"/>
+        <action
+            android:id="@+id/action_chooseRecipientFragment_to_mainFragment"
+            app:destination="@id/mainFragment"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"/>
+    </fragment>
+    <fragment
+        android:id="@+id/specifyAmountFragment"
+        android:name="com.example.navcomponents.SpecifyAmountFragment"
+        android:label="fragment_specify_amount"
+        tools:layout="@layout/fragment_specify_amount" >
+
+        <argument android:name="recipient"
+            android:defaultValue="None"/>
+
+        <action
+            android:id="@+id/action_specifyAmountFragment_to_chooseRecipientFragment"
+            app:destination="@id/chooseRecipientFragment"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"/>
+
+        <action
+            android:id="@+id/action_specifyAmountFragment_to_confirmationFragment"
+            app:destination="@id/confirmationFragment"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"/>
+    </fragment>
+    <fragment
+        android:id="@+id/confirmationFragment"
+        android:name="com.example.navcomponents.ConfirmationFragment"
+        android:label="fragment_confirmation"
+        tools:layout="@layout/fragment_confirmation">
+        <argument android:name="recipient"
+            android:defaultValue="None"/>
+
+        <argument android:name="amount"
+            app:argType="com.example.navcomponents.data.Money"/>
+    </fragment>
+    <fragment
+        android:id="@+id/viewTransactionsFragment"
+        android:name="com.example.navcomponents.ViewTransactionsFragment"
+        android:label="fragment_view_transactions"
+        tools:layout="@layout/fragment_view_transactions" />
+    <fragment
+        android:id="@+id/viewBalanceFragment"
+        android:name="com.example.navcomponents.ViewBalanceFragment"
+        android:label="fragment_view_balance"
+        tools:layout="@layout/fragment_view_balance" />
+</navigation>
